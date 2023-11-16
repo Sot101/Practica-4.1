@@ -1,0 +1,55 @@
+% Practica 4.1   Diagramas de Bode
+
+%%  Diagrama INICISO 1
+numerator = [400];   % Coeficientes del numerador de la función de transferencia
+denominator = [1, 5];  % Coeficientes del denominador de la función de transferencia
+sys = tf(numerator, denominator);  % Crea el sistema
+
+bode(sys);  % Calcula y traza el diagrama de Bode de 'sys'
+
+bode(sys, {0.1, 100});  % Personaliza el rango de frecuencias
+grid on;  % Activa la cuadrícula
+title('Diagrama de Bode');  % Agrega un título
+legend('Función 1');  % Agrega una leyenda
+
+showplot;  % Muestra el gráfico en una ventana separada
+
+%% Diagrama INCISO 2
+numerator = [100 0 0];   % Coeficientes del numerador de la función de transferencia
+denominator = [1, 13, 30];  % Coeficientes del denominador de la función de transferencia
+sys = tf(numerator, denominator);  % Crea el sistema
+
+bode(sys);  % Calcula y traza el diagrama de Bode de 'sys'
+
+bode(sys, {0.1, 100});  % Personaliza el rango de frecuencias
+grid on;  % Activa la cuadrícula
+title('Diagrama de Bode Función 2');  % Agrega un título
+legend('Sistema');  % Agrega una leyenda
+
+showplot;  % Muestra el gráfico en una ventana separada
+
+%% Diagrama INCISO 3
+numerator = [50 250];   % Coeficientes del numerador de la función de transferencia
+denominator = [1,18, 80, 0];  % Coeficientes del denominador de la función de transferencia
+sys = tf(numerator, denominator);  % Crea el sistema
+
+bode(sys);  % Calcula y traza el diagrama de Bode de 'sys'
+
+bode(sys, {0.1, 100});  % Personaliza el rango de frecuencias
+grid on;  % Activa la cuadrícula
+    title('Diagrama de Bode Función 3');  % Agrega un título
+    legend('Sistema');  % Agrega una leyenda
+    
+    showplot;  % Muestra el gráfico en una ventana separada
+    
+    
+    %% Inciso 3. Puntos a distintas frecuencias por forma logaritmica
+i = sqrt(-1);
+w=[0.1,1,10,100,1000]; %Frecuencias
+M = 20*log10(abs((25/8)))+20*log10(abs((i*w/5)+1))-20*log10(ab  s(i*w))
+-20*log10(abs((i*w/8)+1))-20*log10(abs((i*w/10)+1))  %valores para magnitud
+
+%%  PARA FASE (ANGULO)
+i = sqrt(-1);
+w=[0.1,1,10,100,1000]; %Frecuencias
+F = 0 + atand(abs(i*w/5)) -atand(abs(i*w/8))- atand(abs(i*w/10))- 90 %valores para frecuencia
